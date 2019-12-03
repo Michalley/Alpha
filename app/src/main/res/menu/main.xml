@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="first"
+        android:title="Authentication"
+        android:orderInCategory="100" />
+
+    <item
+        android:id="second"
+        android:title="Database"
+        android:orderInCategory="200"/>
+
+        <item
+            android:id="third"
+            android:title="Storage"
+            android:orderInCategory="300"/>
+
+</menu>
