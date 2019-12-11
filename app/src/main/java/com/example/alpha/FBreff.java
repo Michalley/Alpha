@@ -3,6 +3,8 @@ package com.example.alpha;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class FBreff {
 
@@ -10,8 +12,12 @@ public class FBreff {
 
     public static FirebaseDatabase FBDB = FirebaseDatabase.getInstance();
 
-    public static DatabaseReference refUser = FBDB.getReference("Users");
+    public static DatabaseReference refUsers = FBDB.getReference("Users");
 
-    //public static DatabaseReference reff = FBDB.getReference("Alpha");
+    public static DatabaseReference reff = FBDB.getReference("Alpha");
+
+    public static StorageReference mStorageRef= FirebaseStorage.getInstance().getReference();
+
+
 
 }
