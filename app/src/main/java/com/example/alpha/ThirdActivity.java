@@ -36,6 +36,10 @@ public class ThirdActivity extends AppCompatActivity {
 
     Intent t;
 
+    StorageReference ref;
+    private String DIRECTORY_DOWNLOAD;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +58,7 @@ public class ThirdActivity extends AppCompatActivity {
     }
 
     private void openGallery() {
-        Intent gallery = new Intent (Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        Intent gallery = new Intent (Intent.ACTION_PICK,MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery,PICK_IMAGE);
     }
 
@@ -90,7 +94,7 @@ public class ThirdActivity extends AppCompatActivity {
     }
 
     public void Upload(View view) throws IOException {
-        /*ref = mStorageRef.child("images/pic.jpg");
+        ref = mStorageRef.child("images/pic.jpg");
 
         ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -100,7 +104,7 @@ public class ThirdActivity extends AppCompatActivity {
                 imv.setImageURI(uri);
                 //downloadFile(ThirdActivity.this,"image","pic.jpn",DIRECTORY_DOWNLOAD,url);
             }
-        });*/
+        });
         final File localFile = File.createTempFile("images","pic.jpg");
         mStorageRef.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
             @Override
@@ -110,7 +114,7 @@ public class ThirdActivity extends AppCompatActivity {
         });
     }
 
-    public void downloadFile(Context context, String fileName, String fileExtension, String destinationDirectory, String url){
+    public void downloadFile(Context context,String fileName, String fileExtension, String destinationDirectory, String url){
 
         DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         Uri uri = Uri.parse(url);
@@ -143,4 +147,5 @@ public class ThirdActivity extends AppCompatActivity {
         startActivity(t);
         return true;
     }
+
 }
